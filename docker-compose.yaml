@@ -1,0 +1,16 @@
+version: "3.3"
+
+services:
+  blocktracker:
+    build: .
+    environment:
+      - 'redis:host=redis'
+    ports:
+      - 3000:3000
+    depends_on:
+      - redis
+  redis:
+    image: redis
+    # only for debugging
+    ports:
+      - 6379:6379
